@@ -5,14 +5,16 @@ import (
 	"strings"
 )
 
-type Matrix [][]int
+type Matrix struct {
+	Rows [][]int
+}
 
-func (matrix Matrix) String() string {
+func (m Matrix) String() string {
 	var bldr strings.Builder
 
 	// Number of cols = length of longest row.
 	cols := 0
-	for _, row := range matrix {
+	for _, row := range m.Rows {
 		cols = greatest(cols, len(row))
 	}
 
@@ -31,7 +33,7 @@ func (matrix Matrix) String() string {
 	bldr.WriteString("-\n")
 
 	// Write the rows.
-	for rowidx, row := range matrix {
+	for rowidx, row := range m.Rows {
 		bldr.WriteString(strconv.Itoa(rowidx))
 		bldr.WriteString(":")
 		for _, col := range row {

@@ -61,9 +61,22 @@ func main() {
 		},
 	}
 	searchTree.Add(0)
-	stats := searchTree.Stats()
+	searchTree.Add(4)
+	searchTree.Add(5)
+	searchTree.Add(100)
 
-	fmt.Println("**tree**")
-	fmt.Printf("num nodes: %d\ntotal: %d\nrows: %d\ncols: %d\n", stats.Count, stats.Total, stats.Rows, stats.Cols)
-	fmt.Printf("%s\n", searchTree)
+	// mtx := searchTree.ToMatrix()
+	// fmt.Printf("matrix:\n%v\n", mtx)
+
+	// mtx.PrintTree()
+
+	searchTree.Describe()
+
+	// fmt.Printf("tree as matrix\n")
+	// searchTree.Print()
+	// stats := searchTree.Stats()
+
+	// fmt.Println("**tree**")
+	// fmt.Printf("num nodes: %d\ntotal: %d\nrows: %d\ncols: %d\n", stats.Count, stats.Total, stats.Rows, stats.Cols)
+	fmt.Printf("-->\n%s\n", searchTree)
 }
